@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Variables */
+        :root {
+            --c-border: #9F2042;
+            --c-background: #E3E4DB;
+            --c-text: #441151;
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Alice', Helvetica, sans-serif;
+        }
+
+        /* Styles for div */
+        div {
+            margin: 4em auto;
+            padding: 4em;
+            box-sizing: border-box;
+            width: 30em;
+            height: 15em;
+            text-align: center;
+            background-color: var(--c-background);
+        }
+
+        /* Styles for .sparkle */
+        .sparkle {
+            max-width: 10em;
+            color: var(--c-text);
+            margin: auto auto;
+            cursor: pointer;
+            
+        }
+
+        /* Styles for .u-hover--sparkle */
+        .u-hover--sparkle {
+            box-sizing: border-box;
+            position: relative;
+            padding: 0.75em;
+        }
+
+        .u-hover--sparkle::before,
+        .u-hover--sparkle::after {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            transform-origin: center;
+        }
+
+        .u-hover--sparkle::before {
+            border-top: 0.2em solid var(--c-border);
+            border-bottom: 0.2em solid var(--c-border);
+            transform: scale3d(0, 1, 1);
+        }
+
+        .u-hover--sparkle::after {
+            border-left: 0.2em solid var(--c-border);
+            border-right: 0.2em solid var(--c-border);
+            transform: scale3d(1, 0, 1);
+        }
+
+        .u-hover--sparkle:hover::before,
+        .u-hover--sparkle:hover::after {
+            transform: scale3d(1, 1, 1);
+            transition: transform 900ms;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1 class="sparkle u-hover--sparkle">
+            Sparkle Hover
+        </h1>
+    </div>
+</body>
+
+</html>
